@@ -41,7 +41,6 @@ public final class WebDriverAssert {
 	 */
 	public static void assertTitleNotEquals(WebDriver driver, String unexpected) {
 		assertNotEquals(unexpected, driver.getTitle());
-
 	}
 
 	/**
