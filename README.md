@@ -1,5 +1,7 @@
 # Selenium Assured
 
+A set of assertion classes and methods useful for writing Selenium tests.
+
 ## Continuous Integration Builds
 
 | CI Server | OS      | Status | Description |
