@@ -35,3 +35,7 @@ A set of assertion classes and methods useful for writing Selenium tests.
 * **[Leonardo Carmona da Silva]** - *Product Owner and Software Engineer* - [LeoCarmona](https://github.com/LeoCarmona) on [LinkedIn](https://www.linkedin.com/in/l3ocarmona/)
 
 See also the list of [contributors](https://github.com/QACore/Selenium-Assured/graphs/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE.txt) file for details
