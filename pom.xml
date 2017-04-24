@@ -8,10 +8,11 @@
 	<name>Selenium Assured</name>
 	<description>API for writing Selenium Java Test</description>
 	<url>https://github.com/qacore/selenium-assured</url>
+	
 	<licenses>
 		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<name>Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
