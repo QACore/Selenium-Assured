@@ -56,6 +56,32 @@ public final class WebDriverAssert {
 	}
 
 	/**
+	 * Asserts that web page title equals ignoring case to <code>expected</code> title.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param expected
+	 *            <code>expected</code> title
+	 */
+	public static void assertTitleEqualsIgnoreCase(WebDriver driver, String expected) {
+		assertEquals(expected.toLowerCase(), driver.getTitle().toLowerCase());
+	}
+
+	/**
+	 * Asserts that web page title not equals ignoring case to <code>unexpected</code> title.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param unexpected
+	 *            <code>unexpected</code> title
+	 */
+	public static void assertTitleNotEqualsIgnoreCase(WebDriver driver, String unexpected) {
+		assertNotEquals(unexpected.toLowerCase(), driver.getTitle().toLowerCase());
+	}
+
+	/**
 	 * Tests if the substring of <em>title</em> beginning at the specified index starts with the specified <code>prefix</code>.
 	 * 
 	 * @param driver
