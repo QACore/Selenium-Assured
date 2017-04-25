@@ -43,19 +43,6 @@ public final class WebDriverAssert {
 	}
 
 	/**
-	 * Asserts that web page title not equals to <code>unexpected</code> title.
-	 * 
-	 * @param driver
-	 *            the <code>driver</code> where will be checked
-	 * 
-	 * @param unexpected
-	 *            <code>unexpected</code> title
-	 */
-	public static void assertTitleNotEquals(WebDriver driver, String unexpected) {
-		assertNotEquals(unexpected, driver.getTitle());
-	}
-
-	/**
 	 * Asserts that web page title equals ignoring case to <code>expected</code> title.
 	 * 
 	 * @param driver
@@ -66,6 +53,19 @@ public final class WebDriverAssert {
 	 */
 	public static void assertTitleEqualsIgnoreCase(WebDriver driver, String expected) {
 		assertEquals(expected.toLowerCase(), driver.getTitle().toLowerCase());
+	}
+
+	/**
+	 * Asserts that web page title not equals to <code>unexpected</code> title.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param unexpected
+	 *            <code>unexpected</code> title
+	 */
+	public static void assertTitleNotEquals(WebDriver driver, String unexpected) {
+		assertNotEquals(unexpected, driver.getTitle());
 	}
 
 	/**
