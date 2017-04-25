@@ -7,6 +7,8 @@ import java.lang.reflect.Modifier;
 
 import org.junit.Test;
 
+import com.githubqacore.seleniumassured.WebDriverAssert;
+
 /**
  * 
  * 

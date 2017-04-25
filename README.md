@@ -33,7 +33,7 @@ Selenium assertions are used as a static import in your JUnit tests classes.
 **Import**
 
 ```java
-  import static qacore.seleniumassured.WebDriverAssert.*;
+  import static com.github.qacore.seleniumassured.WebDriverAssert.*;
 ```
 
 ## Authors

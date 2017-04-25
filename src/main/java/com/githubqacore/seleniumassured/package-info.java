@@ -1,4 +1,4 @@
 /**
  * Core package for the Selenium tests.
  */
-package qacore.seleniumassured;
+package com.githubqacore.seleniumassured;

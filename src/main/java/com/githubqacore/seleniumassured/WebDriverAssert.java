@@ -1,4 +1,4 @@
-package qacore.seleniumassured;
+package com.githubqacore.seleniumassured;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -19,7 +19,7 @@ import org.openqa.selenium.WebDriver;
  * @author Leonardo Carmona da Silva
  *         <ul>
  *         <li><a href="https://br.linkedin.com/in/l3ocarmona">https://br.linkedin.com/in/l3ocarmona</a></li>
- *         <li><a href="https://github.com/LeoCarmona">https://github.com/LeoCarmona</a></li>
+ *         <><a href="https://github.com/LeoCarmona">https://github.com/LeoCarmona</a></li>
  *         </ul>
  *
  * @see AssertionError
