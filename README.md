@@ -36,6 +36,18 @@ Selenium assertions are used as a static import in your JUnit tests classes.
   import static com.github.qacore.seleniumassured.WebDriverAssert.*;
 ```
 
+**Assertions**
+
+* Current URL:
+```java
+  WebDriverAssert.assertCurrentUrl*
+```
+
+* Title:
+```java
+  WebDriverAssert.assertTitle*
+```
+
 ## Authors
 
 * **[Leonardo Carmona da Silva]** - *Product Owner and Software Engineer* - [LeoCarmona](https://github.com/LeoCarmona) on [LinkedIn](https://www.linkedin.com/in/l3ocarmona/)
