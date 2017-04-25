@@ -1,6 +1,6 @@
 # Selenium Assured
 
-A set of assertion classes and methods useful for writing Selenium tests.
+A set of assertion classes and methods useful for writing [Selenium](https://github.com/SeleniumHQ/selenium) tests.
 
 ## Continuous Integration Builds
 
