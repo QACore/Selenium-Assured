@@ -1,7 +1,9 @@
 package qacore.seleniumassured;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 
@@ -31,7 +33,7 @@ public final class WebDriverAssert {
 	 * Asserts that web page title equals to <code>expected</code> title.
 	 * 
 	 * @param driver
-	 *            the <code>driver</code>'s page title to check against <code>expected</code> title
+	 *            the <code>driver</code> where will be checked
 	 * 
 	 * @param expected
 	 *            <code>expected</code> title
@@ -44,13 +46,75 @@ public final class WebDriverAssert {
 	 * Asserts that web page title not equals to <code>unexpected</code> title.
 	 * 
 	 * @param driver
-	 *            the <code>driver</code>'s page title to check against <code>unexpected</code>
+	 *            the <code>driver</code> where will be checked
 	 * 
 	 * @param unexpected
 	 *            <code>unexpected</code> title
 	 */
 	public static void assertTitleNotEquals(WebDriver driver, String unexpected) {
 		assertNotEquals(unexpected, driver.getTitle());
+	}
+
+	/**
+	 * Tests if the substring of <em>title</em> beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>title</em> prefix
+	 * 
+	 * @param toffset
+	 *            where to begin looking in this string
+	 */
+	public static void assertTitleStartsWith(WebDriver driver, String prefix, int toffset) {
+		String title = driver.getTitle();
+
+		assertTrue("The title <" + title + "> doesn't start with <" + prefix + "> at index " + toffset, title.startsWith(prefix, toffset));
+	}
+
+	/**
+	 * Tests if the substring of <em>title</em> beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>title</em> prefix
+	 */
+	public static void assertTitleStartsWith(WebDriver driver, String prefix) {
+		assertTitleStartsWith(driver, prefix, 0);
+	}
+
+	/**
+	 * Tests if the substring of <em>title</em> does not beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>title</em> prefix
+	 * 
+	 * @param toffset
+	 *            where to begin looking in this string
+	 */
+	public static void assertTitleDoesNotStartWith(WebDriver driver, String prefix, int toffset) {
+		String title = driver.getTitle();
+
+		assertFalse("The title <" + title + "> starts with <" + prefix + "> at index " + toffset, title.startsWith(prefix, toffset));
+	}
+
+	/**
+	 * Tests if the substring of <em>title</em> does not beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>title</em> prefix
+	 */
+	public static void assertTitleDoesNotStartWith(WebDriver driver, String prefix) {
+		assertTitleDoesNotStartWith(driver, prefix, 0);
 	}
 
 	/**
