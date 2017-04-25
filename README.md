@@ -26,6 +26,16 @@ A set of assertion classes and methods useful for writing [Selenium](https://git
 
 * [Maven](https://maven.apache.org/) - Dependency Management 
 
+## Examples
+
+Selenium assertions are used as a static import in your JUnit tests classes.
+
+**Import**
+
+```java
+  import static qacore.seleniumassured.WebDriverAssert.*;
+```
+
 ## Authors
 
 * **[Leonardo Carmona da Silva]** - *Product Owner and Software Engineer* - [LeoCarmona](https://github.com/LeoCarmona) on [LinkedIn](https://www.linkedin.com/in/l3ocarmona/)
