@@ -30,7 +30,395 @@ import org.openqa.selenium.WebDriver;
 public final class WebDriverAssert {
 
 	/**
-	 * Asserts that web page title equals to <code>expected</code> title.
+	 * Tests if <em>current url</em> equals to <code>expected</code> <em>current url</em>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param expected
+	 *            <code>expected</code> current url
+	 */
+	public static void assertCurrentUrlEquals(WebDriver driver, String expected) {
+		assertEquals(expected, driver.getCurrentUrl());
+	}
+
+	/**
+	 * Tests if <em>current url</em> equals to <code>expected</code> <em>current url</em> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param expected
+	 *            <code>expected</code> current url
+	 */
+	public static void assertCurrentUrlEqualsIgnoreCase(WebDriver driver, String expected) {
+		assertEquals(expected.toLowerCase(), driver.getCurrentUrl().toLowerCase());
+	}
+
+	/**
+	 * Tests if <em>current url</em> not equals to <code>unexpected</code> <em>current url</em>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param unexpected
+	 *            <code>unexpected</code> current url
+	 */
+	public static void assertCurrentUrlNotEquals(WebDriver driver, String unexpected) {
+		assertNotEquals(unexpected, driver.getCurrentUrl());
+	}
+
+	/**
+	 * Tests if <em>current url</em> not equals to <code>unexpected</code> <em>current url</em> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param unexpected
+	 *            <code>unexpected</code> current url
+	 */
+	public static void assertCurrentUrlNotEqualsIgnoreCase(WebDriver driver, String unexpected) {
+		assertNotEquals(unexpected.toLowerCase(), driver.getCurrentUrl().toLowerCase());
+	}
+
+	/**
+	 * Tests if <em>current url</em> is empty.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param trim
+	 *            if <code>true</code>, all leading and trailing whitespace removed. Otherwise, false.
+	 */
+	public static void assertCurrentUrlIsEmpty(WebDriver driver, boolean trim) {
+		String currentUrl = driver.getCurrentUrl();
+
+		if (trim)
+			currentUrl = currentUrl.trim();
+
+		assertTrue("The current url is empty", currentUrl.isEmpty());
+	}
+
+	/**
+	 * Tests if <em>current url</em> is empty.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 */
+	public static void assertCurrentUrlIsEmpty(WebDriver driver) {
+		assertCurrentUrlIsEmpty(driver, false);
+	}
+
+	/**
+	 * Tests if <em>current url</em> is not empty.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param trim
+	 *            if <code>true</code>, all leading and trailing whitespace removed. Otherwise, false.
+	 */
+	public static void assertCurrentUrlIsNotEmpty(WebDriver driver, boolean trim) {
+		String currentUrl = driver.getCurrentUrl();
+
+		if (trim)
+			currentUrl = currentUrl.trim();
+
+		assertFalse("The current url <" + currentUrl + "> is not empty", currentUrl.isEmpty());
+	}
+
+	/**
+	 * Tests if <em>current url</em> is not empty.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 */
+	public static void assertCurrentUrlIsNotEmpty(WebDriver driver) {
+		assertCurrentUrlIsNotEmpty(driver, false);
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 * 
+	 * @param toffset
+	 *            where to begin looking in this string
+	 */
+	public static void assertCurrentUrlStartsWith(WebDriver driver, String prefix, int toffset) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertTrue("The current url <" + currentUrl + "> doesn't start with <" + prefix + "> at index " + toffset, currentUrl.startsWith(prefix, toffset));
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 */
+	public static void assertCurrentUrlStartsWith(WebDriver driver, String prefix) {
+		assertCurrentUrlStartsWith(driver, prefix, 0);
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> beginning at the specified index starts with the specified <code>prefix</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 * 
+	 * @param toffset
+	 *            where to begin looking in this string
+	 */
+	public static void assertCurrentUrlStartsWithIgnoreCase(WebDriver driver, String prefix, int toffset) {
+		String currentUrl = driver.getCurrentUrl().toLowerCase();
+		prefix = prefix.toLowerCase();
+
+		assertTrue("The current url <" + currentUrl + "> doesn't start with <" + prefix + "> at index " + toffset, currentUrl.startsWith(prefix, toffset));
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> beginning at the specified index starts with the specified <code>prefix</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 */
+	public static void assertCurrentUrlStartsWithIgnoreCase(WebDriver driver, String prefix) {
+		assertCurrentUrlStartsWithIgnoreCase(driver, prefix, 0);
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> does not beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 * 
+	 * @param toffset
+	 *            where to begin looking in this string
+	 */
+	public static void assertCurrentUrlDoesNotStartWith(WebDriver driver, String prefix, int toffset) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertFalse("The current url <" + currentUrl + "> starts with <" + prefix + "> at index " + toffset, currentUrl.startsWith(prefix, toffset));
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> does not beginning at the specified index starts with the specified <code>prefix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 */
+	public static void assertCurrentUrlDoesNotStartWith(WebDriver driver, String prefix) {
+		assertCurrentUrlDoesNotStartWith(driver, prefix, 0);
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> does not beginning at the specified index starts with the specified <code>prefix</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 * 
+	 * @param toffset
+	 *            where to begin looking in this string
+	 */
+	public static void assertCurrentUrlDoesNotStartWithIgnoreCase(WebDriver driver, String prefix, int toffset) {
+		String currentUrl = driver.getCurrentUrl().toLowerCase();
+		prefix = prefix.toLowerCase();
+
+		assertFalse("The current url <" + currentUrl + "> starts with <" + prefix + "> at index " + toffset, currentUrl.startsWith(prefix, toffset));
+	}
+
+	/**
+	 * Tests if the substring of <em>current url</em> does not beginning at the specified index starts with the specified <code>prefix</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param prefix
+	 *            the <em>current url</em> <code>prefix</code>
+	 */
+	public static void assertCurrentUrlDoesNotStartWithIgnoreCase(WebDriver driver, String prefix) {
+		assertCurrentUrlDoesNotStartWith(driver, prefix, 0);
+	}
+
+	/**
+	 * Tests if <em>current url</em> ends with the specified <code>suffix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param suffix
+	 *            the <em>current url</em> <code>suffix</code>
+	 */
+	public static void assertCurrentUrlEndsWith(WebDriver driver, String suffix) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertTrue("The current url <" + currentUrl + "> doesn't end with <" + suffix + ">", currentUrl.endsWith(suffix));
+	}
+
+	/**
+	 * Tests if <em>current url</em> ends with the specified <code>suffix</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param suffix
+	 *            the <em>current url</em> <code>suffix</code>
+	 */
+	public static void assertCurrentUrlEndsWithIgnoreCase(WebDriver driver, String suffix) {
+		String currentUrl = driver.getCurrentUrl().toLowerCase();
+		suffix = suffix.toLowerCase();
+
+		assertTrue("The current url <" + currentUrl + "> doesn't end with <" + suffix + ">", currentUrl.endsWith(suffix));
+	}
+
+	/**
+	 * Tests if <em>current url</em> does not end with the specified <code>suffix</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param suffix
+	 *            the <em>current url</em> <code>suffix</code>
+	 */
+	public static void assertCurrentUrlDoesNotEndWith(WebDriver driver, String suffix) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertFalse("The current url <" + currentUrl + "> ends with <" + suffix + ">", currentUrl.endsWith(suffix));
+	}
+
+	/**
+	 * Tests if <em>current url</em> does not end with the specified <code>suffix</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param suffix
+	 *            the <em>current url</em> <code>suffix</code>
+	 */
+	public static void assertCurrentUrlDoesNotEndWithIgnoreCase(WebDriver driver, String suffix) {
+		String currentUrl = driver.getCurrentUrl().toLowerCase();
+		suffix = suffix.toLowerCase();
+
+		assertFalse("The current url <" + currentUrl + "> ends with <" + suffix + ">", currentUrl.endsWith(suffix));
+	}
+
+	/**
+	 * Tests if <em>current url</em> contains the <code>sequence</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param sequence
+	 *            the <code>sequence</code> to search for
+	 */
+	public static void assertCurrentUrlContains(WebDriver driver, String sequence) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertTrue("The current url <" + currentUrl + "> does not contain <" + sequence + ">", currentUrl.contains(sequence));
+	}
+
+	/**
+	 * Tests if <em>current url</em> contains the <code>sequence</code> ignoring case.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param sequence
+	 *            the <code>sequence</code> to search for
+	 */
+	public static void assertCurrentUrlContainsIgnoreCase(WebDriver driver, String sequence) {
+		String currentUrl = driver.getCurrentUrl().toLowerCase();
+		sequence = sequence.toLowerCase();
+
+		assertTrue("The current url <" + currentUrl + "> does not contain <" + sequence + ">", currentUrl.contains(sequence));
+	}
+
+	/**
+	 * Tests if <em>current url</em> does not contain the <code>sequence</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param sequence
+	 *            the <code>sequence</code> to search for
+	 */
+	public static void assertCurrentUrlDoesNotContain(WebDriver driver, String sequence) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertFalse("The current url <" + currentUrl + "> contains <" + sequence + ">", currentUrl.contains(sequence));
+	}
+
+	/**
+	 * Tests if <em>current url</em> does not contain the <code>sequence</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param sequence
+	 *            the <code>sequence</code> to search for
+	 */
+	public static void assertCurrentUrlDoesNotContainIgnoreCase(WebDriver driver, String sequence) {
+		String currentUrl = driver.getCurrentUrl().toLowerCase();
+		sequence = sequence.toLowerCase();
+
+		assertFalse("The current url <" + currentUrl + "> contains <" + sequence + ">", currentUrl.contains(sequence));
+	}
+
+	/**
+	 * Tests if <em>current url</em> matches the given <code>regex</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param regex
+	 *            the regular expression to which this string is to be matched
+	 */
+	public static void assertCurrentUrlMatches(WebDriver driver, String regex) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertTrue("The current url <" + currentUrl + "> does not match <" + regex + ">", currentUrl.matches(regex));
+	}
+
+	/**
+	 * Tests if <em>current url</em> does not match the given <code>regex</code>.
+	 * 
+	 * @param driver
+	 *            the <code>driver</code> where will be checked
+	 * 
+	 * @param regex
+	 *            the regular expression to which this string is to be matched
+	 */
+	public static void assertCurrentUrlDoesNotMatch(WebDriver driver, String regex) {
+		String currentUrl = driver.getCurrentUrl();
+
+		assertFalse("The current url <" + currentUrl + "> matches <" + regex + ">", currentUrl.matches(regex));
+	}
+
+	/**
+	 * Tests if <em>title</em> equals to <code>expected</code> <em>title</em>.
 	 * 
 	 * @param driver
 	 *            the <code>driver</code> where will be checked
@@ -43,7 +431,7 @@ public final class WebDriverAssert {
 	}
 
 	/**
-	 * Asserts that web page title equals ignoring case to <code>expected</code> title.
+	 * Tests if <em>title</em> equals to <code>expected</code> <em>title</em> ignoring case.
 	 * 
 	 * @param driver
 	 *            the <code>driver</code> where will be checked
@@ -56,7 +444,7 @@ public final class WebDriverAssert {
 	}
 
 	/**
-	 * Asserts that web page title not equals to <code>unexpected</code> title.
+	 * Tests if <em>title</em> not equals to <code>unexpected</code> <em>title</em>.
 	 * 
 	 * @param driver
 	 *            the <code>driver</code> where will be checked
@@ -69,7 +457,7 @@ public final class WebDriverAssert {
 	}
 
 	/**
-	 * Asserts that web page title not equals ignoring case to <code>unexpected</code> title.
+	 * Tests if <em>title</em> not equals to <code>unexpected</code> <em>title</em>.
 	 * 
 	 * @param driver
 	 *            the <code>driver</code> where will be checked
